@@ -1,6 +1,8 @@
 techupskills: @workspace what are the API's parameters and what does it return?
 
-Workspace: The [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") class in [`EmployeeController.java`](src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java) defines several API endpoints, each with its own set of parameters and return types. Here's a summary of the parameters and return types for each API endpoint defined in the class:
+#Workspace:
+
+The [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") class in [`EmployeeController.java`](src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java) defines several API endpoints, each with its own set of parameters and return types. Here's a summary of the parameters and return types for each API endpoint defined in the class:
 
 1. **Get All Employees**
    - **Endpoint:** `/employees/all`
