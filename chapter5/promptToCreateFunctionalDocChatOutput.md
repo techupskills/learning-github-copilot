@@ -1,6 +1,8 @@
 techupskills: create functional documentation explaining the various public APIs in #file:EmployeeController.java 
 
-GitHub Copilot: # EmployeeController API Documentation
+GitHub Copilot: 
+
+# EmployeeController API Documentation
 
 The [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") class provides a set of RESTful APIs to search and filter employees from an Employee Directory. These APIs are designed to be consumed by front-end applications or other services. Below is the functional documentation of the various public APIs exposed by the [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java").
 
