@@ -57,7 +57,7 @@ The API does not explicitly detail authentication or authorization mechanisms, s
 Usage Example
 
 To create a new employee:
-
+'''
 POST /employees
 Content-Type: application/json
 
@@ -65,6 +65,7 @@ Content-Type: application/json
   "name": "John Doe",
   "role": "Software Engineer"
 }
+'''
 
 Response:
 
