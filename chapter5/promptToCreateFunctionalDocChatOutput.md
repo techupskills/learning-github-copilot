@@ -1,59 +1,45 @@
 EmployeeController API Documentation
-
 The EmployeeController class provides a RESTful API for managing employee information. It offers endpoints for creating, retrieving, updating, and deleting employee records. Below is the functional documentation of its public APIs.
 API Endpoints
 1. List All Employees
-
-    Endpoint: GET /employees
-    Description: Retrieves a list of all employees.
-    Parameters: None
-    Returns: A list of employee objects. Each object contains employee details such as id, name, and role.
-
+•	Endpoint: GET /employees
+•	Description: Retrieves a list of all employees.
+•	Parameters: None
+•	Returns: A list of employee objects. Each object contains employee details such as id, name, and role.
 2. Get Employee by ID
-
-    Endpoint: GET /employees/{id}
-    Description: Retrieves the details of a specific employee by their ID.
-    Parameters:
-        id (path variable): The unique identifier of the employee.
-    Returns: An employee object containing details of the specified employee. If the employee is not found, a 404 error is returned.
-
+•	Endpoint: GET /employees/{id}
+•	Description: Retrieves the details of a specific employee by their ID.
+•	Parameters:
+o	id (path variable): The unique identifier of the employee.
+•	Returns: An employee object containing details of the specified employee. If the employee is not found, a 404 error is returned.
 3. Create New Employee
-
-    Endpoint: POST /employees
-    Description: Adds a new employee to the system.
-    Parameters:
-        Request Body: An employee object containing the details of the employee to be added. The object includes fields such as name and role.
-    Returns: The created employee object, including its newly assigned ID.
-
+•	Endpoint: POST /employees
+•	Description: Adds a new employee to the system.
+•	Parameters:
+o	Request Body: An employee object containing the details of the employee to be added. The object includes fields such as name and role.
+•	Returns: The created employee object, including its newly assigned ID.
 4. Update Employee
-
-    Endpoint: PUT /employees/{id}
-    Description: Updates the details of an existing employee.
-    Parameters:
-        id (path variable): The unique identifier of the employee to update.
-        Request Body: An employee object containing the updated details of the employee. This can include changes to the employee's name, role, etc.
-    Returns: The updated employee object. If the employee is not found, a 404 error is returned.
-
+•	Endpoint: PUT /employees/{id}
+•	Description: Updates the details of an existing employee.
+•	Parameters:
+o	id (path variable): The unique identifier of the employee to update.
+o	Request Body: An employee object containing the updated details of the employee. This can include changes to the employee's name, role, etc.
+•	Returns: The updated employee object. If the employee is not found, a 404 error is returned.
 5. Delete Employee
-
-    Endpoint: DELETE /employees/{id}
-    Description: Removes an employee from the system.
-    Parameters:
-        id (path variable): The unique identifier of the employee to delete.
-    Returns: A confirmation message indicating successful deletion. If the employee is not found, a 404 error is returned.
-
+•	Endpoint: DELETE /employees/{id}
+•	Description: Removes an employee from the system.
+•	Parameters:
+o	id (path variable): The unique identifier of the employee to delete.
+•	Returns: A confirmation message indicating successful deletion. If the employee is not found, a 404 error is returned.
 Error Handling
-
 All endpoints return appropriate HTTP status codes to indicate the success or failure of an API call. Common responses include:
-
-    200 OK: The request was successful.
-    201 Created: A new resource was successfully created.
-    404 Not Found: The requested resource was not found.
-    400 Bad Request: The request was invalid or cannot be served.
-
+•	200 OK: The request was successful.
+•	201 Created: A new resource was successfully created.
+•	404 Not Found: The requested resource was not found.
+•	400 Bad Request: The request was invalid or cannot be served.
 Security
-
 The API does not explicitly detail authentication or authorization mechanisms, so it's assumed to be either open or managed externally.
+
 Usage Example
 
 To create a new employee:
