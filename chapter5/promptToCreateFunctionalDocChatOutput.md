@@ -1,105 +1,63 @@
-To create functional documentation for the various public APIs in `EmployeeController.java`, we will follow these steps:
+EmployeeController API Documentation
 
-1. **Identify Public APIs**: Look through `EmployeeController.java` to identify all public methods. These typically represent the endpoints or functionalities exposed by the controller.
+The EmployeeController class provides a RESTful API for managing employee information. It offers endpoints for creating, retrieving, updating, and deleting employee records. Below is the functional documentation of its public APIs.
+API Endpoints
+1. List All Employees
 
-2. **Method Signatures**: For each public method, document its signature, including the return type, method name, and parameters.
+    Endpoint: GET /employees
+    Description: Retrieves a list of all employees.
+    Parameters: None
+    Returns: A list of employee objects. Each object contains employee details such as id, name, and role.
 
-3. **Endpoint Mapping**: Document the specific request mapping (e.g., `@GetMapping`, `@PostMapping`) for each method, including the URL path and the HTTP method (GET, POST, etc.).
+2. Get Employee by ID
 
-4. **Parameters**: Describe each parameter, including its type, whether it's required or optional, and its purpose.
+    Endpoint: GET /employees/{id}
+    Description: Retrieves the details of a specific employee by their ID.
+    Parameters:
+        id (path variable): The unique identifier of the employee.
+    Returns: An employee object containing details of the specified employee. If the employee is not found, a 404 error is returned.
 
-5. **Return Type**: Explain the return type of each method, including the structure of any object returned or the status code for HTTP responses.
+3. Create New Employee
 
-6. **Exceptions**: Note any exceptions that can be thrown by each method and under what circumstances.
+    Endpoint: POST /employees
+    Description: Adds a new employee to the system.
+    Parameters:
+        Request Body: An employee object containing the details of the employee to be added. The object includes fields such as name and role.
+    Returns: The created employee object, including its newly assigned ID.
 
-7. **Usage Examples**: Provide a brief example of how to call the API, including example request and response bodies if applicable.
+4. Update Employee
 
-8. **Additional Annotations**: Document any additional annotations used within the methods that affect their behavior (e.g., `@RequestBody`, `@PathVariable`).
+    Endpoint: PUT /employees/{id}
+    Description: Updates the details of an existing employee.
+    Parameters:
+        id (path variable): The unique identifier of the employee to update.
+        Request Body: An employee object containing the updated details of the employee. This can include changes to the employee's name, role, etc.
+    Returns: The updated employee object. If the employee is not found, a 404 error is returned.
 
-9. **Security Considerations**: Mention any security-related annotations or mechanisms in place, such as authentication or authorization checks.
+5. Delete Employee
 
-10. **Deprecation Notices**: Highlight any methods that are deprecated and suggest alternatives if available.
+    Endpoint: DELETE /employees/{id}
+    Description: Removes an employee from the system.
+    Parameters:
+        id (path variable): The unique identifier of the employee to delete.
+    Returns: A confirmation message indicating successful deletion. If the employee is not found, a 404 error is returned.
 
----
+Error Handling
 
-### EmployeeController.java - Public APIs Documentation
+All endpoints return appropriate HTTP status codes to indicate the success or failure of an API call. Common responses include:
 
-#### 1. `getAllEmployees()`
-- **Endpoint**: `GET /employees`
-- **Description**: Retrieves a list of all employees.
-- **Parameters**: None
-- **Returns**: `List<Employee>`
-- **Exceptions**: None
-- **Usage Example**:
-  ```http
-  GET /employees
-  ```
+    200 OK: The request was successful.
+    201 Created: A new resource was successfully created.
+    404 Not Found: The requested resource was not found.
+    400 Bad Request: The request was invalid or cannot be served.
 
-#### 2. `getEmployeeById(Long id)`
-- **Endpoint**: `GET /employees/{id}`
-- **Description**: Fetches an employee by their ID.
-- **Parameters**:
-  - `id` (Long): The ID of the employee to retrieve.
-- **Returns**: `Employee`
-- **Exceptions**: `EmployeeNotFoundException` if no employee is found with the provided ID.
-- **Usage Example**:
-  ```http
-  GET /employees/1
-  ```
+Security
 
-#### 3. `createEmployee(Employee employee)`
-- **Endpoint**: `POST /employees`
-- **Description**: Creates a new employee.
-- **Parameters**:
-  - `employee` (Employee): The employee object to be created.
-- **Returns**: `Employee`
-- **Exceptions**: None
-- **Usage Example**:
-  ```http
-  POST /employees
-  Content-Type: application/json
+The API does not explicitly detail authentication or authorization mechanisms, so it's assumed to be either open or managed externally.
+Usage Example
 
-  {
-    "name": "John Doe",
-    "role": "Developer"
-  }
-  ```
+To create a new employee:
 
-#### 4. `updateEmployee(Long id, Employee employee)`
-- **Endpoint**: `PUT /employees/{id}`
-- **Description**: Updates an existing employee's information.
-- **Parameters**:
-  - `id` (Long): The ID of the employee to update.
-  - `employee` (Employee): The updated employee object.
-- **Returns**: `Employee`
-- **Exceptions**: `EmployeeNotFoundException` if no employee is found with the provided ID.
-- **Usage Example**:
-  ```http
-  PUT /employees/1
-  Content-Type: application/json
+Response:
 
-  {
-    "name": "Jane Doe",
-    "role": "Manager"
-  }
-  ```
-
-#### 5. `deleteEmployee(Long id)`
-- **Endpoint**: `DELETE /employees/{id}`
-- **Description**: Deletes an employee by their ID.
-- **Parameters**:
-  - `id` (Long): The ID of the employee to delete.
-- **Returns**: None
-- **Exceptions**: `EmployeeNotFoundException` if no employee is found with the provided ID.
-- **Usage Example**:
-  ```http
-  DELETE /employees/1
-  ```
-
-#### Security Considerations
-- Ensure that all endpoints are protected with appropriate authentication and authorization checks to prevent unauthorized access.
-
-#### Deprecation Notices
-- None at this time.
-
-This documentation provides a comprehensive overview of the public APIs available in `EmployeeController.java`. It's important to keep this documentation up-to-date as the codebase evolves.
+This documentation provides a high-level overview of the EmployeeController API. For detailed usage, including request and response models, refer to the Swagger UI documentation generated by the application.
