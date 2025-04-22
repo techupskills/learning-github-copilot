@@ -2,76 +2,107 @@ techupskills: create functional documentation explaining the various public APIs
 
 GitHub Copilot: 
 
-# EmployeeController API Documentation
+# Functional Documentation for `EmployeeController`
 
-The [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") class provides a set of RESTful APIs to search and filter employees from an Employee Directory. These APIs are designed to be consumed by front-end applications or other services. Below is the functional documentation of the various public APIs exposed by the [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java").
+The `EmployeeController` class provides RESTful APIs to interact with the Employee Directory. It allows users to retrieve employee details based on various search criteria such as employee ID, age, city, or a combination of age and city. Below is the detailed documentation for each API endpoint:
 
-## API Endpoints
+---
 
-### 1. Get All Employees
+## 1. **Get All Employees**
 
-- **Endpoint:** `/employees/all`
-- **Method:** GET
-- **Description:** Retrieves a list of all employees in the directory.
-- **Produces:** application/json
-- **Response Codes:**
-  - `200 OK`: Successfully retrieved the list of employees.
-  - [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class"): An error occurred while processing the request.
+### Endpoint
+```
+GET /employees/all
+```
 
-### 2. Search Employee by ID
+### Description
+Fetches a list of all employees in the directory.
 
-- **Endpoint:** `/employees/{employeeId}`
-- **Method:** GET
-- **Description:** Searches for an employee by their unique ID.
-- **Parameters:**
-  - [`employeeId`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A47%2C%22character%22%3A34%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable): The ID of the employee to be searched.
-- **Produces:** application/json
-- **Response Codes:**
-  - `200 OK`: Successfully found and returned the employee.
-  - [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class"): An error occurred while processing the request.
+### Response
+- **200 OK**: Returns a list of all employees.
+- **500 Internal Server Error**: Returns an error message if an exception occurs.
 
-### 3. Filter Employees by Age
+---
 
-- **Endpoint:** `/employees/greaterThanAge/{age}`
-- **Method:** GET
-- **Description:** Filters employees whose age is greater than the specified age.
-- **Parameters:**
-  - [`age`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A65%2C%22character%22%3A59%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable): The age to filter employees by.
-- **Produces:** application/json
-- **Response Codes:**
-  - `200 OK`: Successfully retrieved the list of employees.
-  - [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class"): An error occurred while processing the request.
+## 2. **Search Employee by Employee ID**
 
-### 4. Filter Employees by City
+### Endpoint
+```
+GET /employees/{employeeId}
+```
 
-- **Endpoint:** `/employees/fromCity/{cityName}`
-- **Method:** GET
-- **Description:** Filters employees who are from the specified city.
-- **Parameters:**
-  - [`cityName`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A80%2C%22character%22%3A33%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable): The name of the city to filter employees by.
-- **Produces:** application/json
-- **Response Codes:**
-  - `200 OK`: Successfully retrieved the list of employees.
-  - [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class"): An error occurred while processing the request.
+### Description
+Fetches the details of a specific employee based on their unique employee ID.
 
-### 5. Filter Employees by Age and City
+### Parameters
+- **Path Variable**: `employeeId` (Integer) - The ID of the employee to be retrieved.
 
-- **Endpoint:** `/employees/filterByAgeAndCity`
-- **Method:** GET
-- **Description:** Filters employees who are from a given city and whose age is greater than the specified age.
-- **Parameters:**
-  - `schoolId` (header): School ID, required for the request.
-  - [`age`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A65%2C%22character%22%3A59%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (query parameter): The age to filter employees by.
-  - [`cityName`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A80%2C%22character%22%3A33%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (query parameter): The city to filter employees by.
-- **Produces:** application/json
-- **Response Codes:**
-  - `200 OK`: Successfully retrieved the list of employees.
-  - [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class"): An error occurred while processing the request.
+### Response
+- **200 OK**: Returns the employee details.
+- **500 Internal Server Error**: Returns an error message if an exception occurs.
 
-## General Information
+---
 
-- **Base URL:** `/employees`
-- **Content-Type:** All endpoints produce `application/json` responses.
-- **Error Handling:** In case of errors, endpoints return a [`500 Internal Server Error`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22path%22%3A%22%2Fjava.base%2Fjava.lang%2FError.class%22%2C%22scheme%22%3A%22jdt%22%2C%22authority%22%3A%22contents%22%2C%22query%22%3A%22%3Dspring-boot-swagger_c52e04d%2F%5C%5C%2Fopt%5C%5C%2Fjava%5C%5C%2F11.0.14%5C%5C%2Flib%5C%5C%2Fjrt-fs.jar%60java.base%3D%2Fjavadoc_location%3D%2Fhttps%3A%5C%5C%2F%5C%5C%2Fdocs.oracle.com%5C%5C%2Fen%5C%5C%2Fjava%5C%5C%2Fjavase%5C%5C%2F11%5C%5C%2Fdocs%5C%5C%2Fapi%5C%5C%2F%3D%2F%3Cjava.lang(Error.class%22%2C%22fragment%22%3A%22syntaxserver%22%7D%2C%7B%22line%22%3A48%2C%22character%22%3A13%7D%5D "/java.base/java.lang/Error.class") with the error message.
+## 3. **Filter Employees by Age**
 
-This documentation provides an overview of the functionalities provided by the [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java"). For further details or integration guidance, refer to the API specifications or contact the API provider.
+### Endpoint
+```
+GET /employees/greaterThanAge/{age}
+```
+
+### Description
+Fetches a list of employees whose age is greater than the specified value.
+
+### Parameters
+- **Path Variable**: `age` (Integer) - The age threshold for filtering employees.
+
+### Response
+- **200 OK**: Returns a list of employees matching the criteria.
+- **500 Internal Server Error**: Returns an error message if an exception occurs.
+
+---
+
+## 4. **Filter Employees by City**
+
+### Endpoint
+```
+GET /employees/fromCity/{cityName}
+```
+
+### Description
+Fetches a list of employees who are from the specified city.
+
+### Parameters
+- **Path Variable**: `cityName` (String) - The name of the city to filter employees by.
+
+### Response
+- **200 OK**: Returns a list of employees matching the criteria.
+- **500 Internal Server Error**: Returns an error message if an exception occurs.
+
+---
+
+## 5. **Filter Employees by Age and City**
+
+### Endpoint
+```
+GET /employees/filterByAgeAndCity
+```
+
+### Description
+Fetches a list of employees who are from a specified city and whose age is greater than the specified value.
+
+### Parameters
+- **Header**: `schoolId` (String) - The school ID for authentication or tracking purposes.
+- **Query Parameter**: `age` (Integer) - The age threshold for filtering employees.
+- **Query Parameter**: `cityName` (String) - The name of the city to filter employees by.
+
+### Response
+- **200 OK**: Returns a list of employees matching the criteria.
+- **500 Internal Server Error**: Returns an error message if an exception occurs.
+
+---
+
+## Notes
+- All endpoints produce responses in `application/json` format.
+- Proper logging is implemented for debugging and error tracking.
+- Swagger annotations (`@Api`, `@ApiOperation`, `@ApiParam`, `@ApiImplicitParam`) are used to document the APIs for integration with Swagger UI.
