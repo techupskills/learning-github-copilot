@@ -1,42 +1,98 @@
 techupskills: @workspace extract the key documentation from the code
 
-# Workspace: 
+Collecting workspace information### Key Documentation Extracted from the Code
 
-The key documentation extracted from the provided code and workspace structure highlights the setup and configuration of a Spring Boot application with Swagger for API documentation. Here's a summary:
+#### Project Overview
+This project is a **Spring Boot** application integrated with **Swagger** for RESTful API documentation. It provides an API for managing employees, including operations to retrieve, filter, and search employees based on various criteria.
 
-### Project Structure and Configuration
-- **Project Base**: Spring Boot application designed for demonstrating Swagger integration.
-- **Group ID**: `com.techupskills.springboot.swagger`
-- **Artifact ID**: `springboot-swagger`
-- **Version**: `0.0.1-SNAPSHOT`
-- **Java Version**: 17
-- **Swagger Version**: 3.0.0
-- **Packaging**: JAR
-- **Parent**: Spring Boot Starter Parent with version 3.1.0
-- **Source Encoding**: UTF-8
+---
 
-### Dependencies
-- **Spring Boot Starter Web**: For building web, including RESTful, applications using Spring MVC.
-- **Spring Boot Starter Test**: For testing Spring Boot applications with libraries including JUnit, Hamcrest, and Mockito.
-- **Spring Boot Starter Data JPA**: For using Spring Data JPA with Hibernate.
-- **Spring Boot Starter Actuator**: To expose operational information about the running application.
-- **MySQL Connector Java**: MySQL JDBC driver for database connectivity.
-- **Lombok**: To reduce boilerplate code for model/data objects.
-- **Springfox Boot Starter**: For integrating Swagger 2 into Spring Boot applications.
-- **JFairy**: For generating fake data for testing.
+#### Key Components
 
-### Swagger Configuration
-- **Swagger UI Path**: The Swagger UI can be accessed at `http://localhost:8080/swagger-ui/index.html`.
-- **SwaggerConfig**: Configures Swagger 2 for the Spring Boot application, enabling it through `@EnableSwagger2` annotation.
+1. **Spring Boot Application**
+   - Entry point: `SpringbootSwaggerApplication`
+   - Configures and runs the application.
 
-### Main Components
-- **EmployeeController**: Controller class located at [`src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/spring-boot-swagger/src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java"), responsible for handling HTTP requests related to employees.
-- **EmployeeService**: Service class at [`src/main/java/com/hendisantika/springboot/swagger/service/EmployeeService.java`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fservice%2FEmployeeService.java%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/spring-boot-swagger/src/main/java/com/hendisantika/springboot/swagger/service/EmployeeService.java"), contains business logic for employee operations.
-- **Employee**: Model class at [`src/main/java/com/hendisantika/springboot/swagger/model/Employee.java`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/spring-boot-swagger/src/main/java/com/hendisantika/springboot/swagger/model/Employee.java"), represents the employee entity.
-- **SpringbootSwaggerApplication**: The main Spring Boot application class that runs the application.
+2. **Swagger Integration**
+   - Configured in `SwaggerConfig`.
+   - Provides API documentation accessible at:
+     - `http://localhost:8080/swagger-ui/index.html`
 
-### Documentation and Testing
-- **Swagger UI Screenshots**: Provided in the [`README.md`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2FREADME.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/spring-boot-swagger/README.md"), showing the Swagger UI and the API documentation.
-- **Testing**: The [`src/test/java`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Ftest%2Fjava%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/spring-boot-swagger/src/test/java") directory contains test classes for the application.
+3. **Employee Management**
+   - **Controller**: `EmployeeController`
+     - Handles API endpoints for employee operations.
+   - **Service**: `EmployeeService`
+     - Contains business logic for employee management.
+   - **Model**: `Employee`
+     - Represents the employee entity with attributes like `employeeId`, `firstName`, `age`, `address`, etc.
 
-This summary encapsulates the essential aspects of the Spring Boot application with Swagger integration, based on the provided workspace information.
+4. **Database Configuration**
+   - Configured in `application.yml`.
+   - Uses MySQL with the following settings:
+     - URL: `jdbc:mysql://localhost/swaggerDB`
+     - Username: `root`
+     - Password: `root`
+
+---
+
+#### API Endpoints
+
+1. **Get All Employees**
+   - **Endpoint**: `/employees/all`
+   - **Method**: `GET`
+   - **Description**: Retrieves all employees.
+
+2. **Search Employee by ID**
+   - **Endpoint**: `/employees/{employeeId}`
+   - **Method**: `GET`
+   - **Description**: Retrieves an employee by their ID.
+
+3. **Filter Employees by Age**
+   - **Endpoint**: `/employees/greaterThanAge/{age}`
+   - **Method**: `GET`
+   - **Description**: Retrieves employees older than the specified age.
+
+4. **Filter Employees by City**
+   - **Endpoint**: `/employees/fromCity/{cityName}`
+   - **Method**: `GET`
+   - **Description**: Retrieves employees from a specific city.
+
+5. **Filter Employees by Age and City**
+   - **Endpoint**: `/employees/filterByAgeAndCity`
+   - **Method**: `GET`
+   - **Description**: Retrieves employees older than a specified age and from a specific city.
+   - **Parameters**: `age` (query), `cityName` (query), `schoolId` (header).
+
+---
+
+#### Maven Dependencies
+- **Spring Boot Starter Web**: For building REST APIs.
+- **Spring Boot Starter Data JPA**: For database interaction.
+- **Springfox Boot Starter**: For Swagger integration.
+- **MySQL Connector Java**: For MySQL database connectivity.
+- **Lombok**: For reducing boilerplate code.
+- **JFairy**: For generating dummy data.
+
+---
+
+#### Testing
+- Test class: `SpringbootSwaggerApplicationTests`
+- Ensures the application context loads successfully.
+
+---
+
+#### Build and Run
+1. **Build**: Use Maven Wrapper scripts:
+   - Unix/Linux: mvnw clean install`
+   - Windows: `mvnw.cmd clean install`
+2. **Run**: `mvn spring-boot:run`
+
+---
+
+#### Swagger UI
+- Access API documentation at:
+  - `http://localhost:8080/swagger-ui/index.html`
+
+---
+
+This documentation summarizes the key aspects of the project, including its structure, configuration, and functionality.
