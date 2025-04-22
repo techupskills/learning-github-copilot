@@ -2,39 +2,50 @@ techupskills: @workspace what are the API's parameters and what does it return?
 
 # Workspace:
 
-The [`EmployeeController`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A20%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") class in [`EmployeeController.java`](src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java) defines several API endpoints, each with its own set of parameters and return types. Here's a summary of the parameters and return types for each API endpoint defined in the class:
+Collecting workspace information
 
-1. **Get All Employees**
-   - **Endpoint:** `/employees/all`
-   - **Method:** GET
-   - **Parameters:** None
-   - **Returns:** `ResponseEntity<Object>` containing a list of all [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") objects or an error message.
+Here is a summary of the API endpoints, their parameters, and return types based on the implementation in `EmployeeController`:
 
-2. **Search Employee by employeeId**
-   - **Endpoint:** `/employees/{employeeId}`
-   - **Method:** GET
-   - **Parameters:** [`employeeId`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A47%2C%22character%22%3A34%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable, required, Integer)
-   - **Returns:** `ResponseEntity<Object>` containing the [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") object with the specified [`employeeId`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A47%2C%22character%22%3A34%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") or an error message.
+### 1. **Get All Employees**
+- **Endpoint**: `GET /employees/all`
+- **Parameters**: None
+- **Returns**: A list of all employees (`List<Employee>`).
 
-3. **Search for all Employees whose age is greater than input age**
-   - **Endpoint:** `/employees/greaterThanAge/{age}`
-   - **Method:** GET
-   - **Parameters:** [`age`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A65%2C%22character%22%3A59%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable, required, Integer)
-   - **Returns:** `ResponseEntity<Object>` containing a list of [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") objects whose age is greater than the specified age or an error message.
+---
 
-4. **Search for all Employees who are from input city**
-   - **Endpoint:** `/employees/fromCity/{cityName}`
-   - **Method:** GET
-   - **Parameters:** [`cityName`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A80%2C%22character%22%3A33%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (path variable, required, String)
-   - **Returns:** `ResponseEntity<Object>` containing a list of [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") objects from the specified city or an error message.
+### 2. **Search Employee by ID**
+- **Endpoint**: `GET /employees/{employeeId}`
+- **Parameters**:
+  - `employeeId` (Path Variable, `Integer`): The ID of the employee to retrieve.
+- **Returns**: An `Employee` object corresponding to the given `employeeId`.
 
-5. **Search for all employees who are from a given city and whose age is greater than input age**
-   - **Endpoint:** `/employees/filterByAgeAndCity`
-   - **Method:** GET
-   - **Parameters:**
-     - `schoolId` (header, required, String)
-     - [`age`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A65%2C%22character%22%3A59%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (query parameter, required, Integer)
-     - [`cityName`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fcontroller%2FEmployeeController.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A80%2C%22character%22%3A33%7D%5D "src/main/java/com/hendisantika/springboot/swagger/controller/EmployeeController.java") (query parameter, required, String)
-   - **Returns:** `ResponseEntity<Object>` containing a list of [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") objects that match the criteria or an error message.
+---
 
-Each endpoint utilizes the [`EmployeeService`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fservice%2FEmployeeService.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/service/EmployeeService.java") to perform operations and fetch data, and returns a `ResponseEntity<Object>` which can either contain the requested data (as a single [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") object or a list of [`Employee`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fworkspaces%2Fspring-boot-swagger%2Fsrc%2Fmain%2Fjava%2Fcom%2Fhendisantika%2Fspringboot%2Fswagger%2Fmodel%2FEmployee.java%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A16%2C%22character%22%3A13%7D%5D "src/main/java/com/hendisantika/springboot/swagger/model/Employee.java") objects) or an error message in case of exceptions.
+### 3. **Filter Employees by Age**
+- **Endpoint**: `GET /employees/greaterThanAge/{age}`
+- **Parameters**:
+  - `age` (Path Variable, `Integer`): The minimum age to filter employees.
+- **Returns**: A list of employees (`List<Employee>`) whose age is greater than the specified value.
+
+---
+
+### 4. **Filter Employees by City**
+- **Endpoint**: `GET /employees/fromCity/{cityName}`
+- **Parameters**:
+  - `cityName` (Path Variable, `String`): The name of the city to filter employees.
+- **Returns**: A list of employees (`List<Employee>`) who are from the specified city.
+
+---
+
+### 5. **Filter Employees by Age and City**
+- **Endpoint**: `GET /employees/filterByAgeAndCity`
+- **Parameters**:
+  - `schoolId` (Header, `String`): A required header parameter.
+  - `age` (Query Parameter, `Integer`): The minimum age to filter employees.
+  - `cityName` (Query Parameter, `String`): The name of the city to filter employees.
+- **Returns**: A list of employees (`List<Employee>`) who are from the specified city and whose age is greater than the specified value.
+
+---
+
+### Notes:
+- All endpoints return a `ResponseEntity` wrapping the result (e.g., `List<Employee>` or `Employee`) with appropriate HTTP status codes (`200 OK` for success, `500 Internal Server Error` for exceptions).
