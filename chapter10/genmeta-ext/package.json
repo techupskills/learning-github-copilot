@@ -1,0 +1,14 @@
+{
+  "name": "metafiles-extension",
+  "private": "true",
+  "description": "Generate metafiles for a GitHub repository",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@octokit/core": "^6.1.2",
+    "express": "^4.19.2"
+  }
+}
